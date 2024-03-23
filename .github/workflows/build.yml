@@ -20,7 +20,8 @@ jobs:
 
             - name: Copy config to source code
               run: |
-                  cp -f .config feeds.conf.default diy.sh $REPO_NAME/
+                  cp  diy.sh $REPO_NAME/
+                  cp  6000mr.config    $REPO_NAME/.config
 
             - name: Get the dependency of immortalwrtARM
               run: |
@@ -29,9 +30,7 @@ jobs:
                   ./diy.sh
                   ./scripts/feeds update -a && ./scripts/feeds install -a
 
-            - name: Copy config to source code
-              run: |
-                  cp -f .config feeds.conf.default diy.sh $REPO_NAME/
+
 
             - name: Upload config before build
               uses: actions/upload-artifact@v3
